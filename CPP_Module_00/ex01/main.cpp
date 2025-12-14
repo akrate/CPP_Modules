@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:12:56 by aoussama          #+#    #+#             */
-/*   Updated: 2025/11/12 18:44:02 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/12/14 10:17:09 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,12 @@ int main()
         std::cout << "1 ==> ADD:\n";
         std::cout << "2 ==> SEARCH:\n";
         std::cout << "3 ==> EXIT:\n";
-        std::getline(std::cin,choise);
+        // std::getline(std::cin,choise);
+        if (!std::getline(std::cin, choise))
+        {
+            std::cout << "\nEOF detected. Exiting...\n";
+            break;                      
+        }
         if (choise == "ADD")
             phonebook.addContact();
         else if (choise == "SEARCH")

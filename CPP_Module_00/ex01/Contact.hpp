@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:13:04 by aoussama          #+#    #+#             */
-/*   Updated: 2025/11/13 10:54:57 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/12/14 10:35:16 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-
+#include <cctype>
 class Contact {
 private:
     std::string firstName;

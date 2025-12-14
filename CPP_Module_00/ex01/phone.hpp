@@ -3,6 +3,7 @@
 
 #include <iomanip>
 #include <iostream>
+#include <cctype>
 #define yellow "\x1B[33m"
 #define blue "\x1B[34m"
 #define Bblue "\x1B[94m"

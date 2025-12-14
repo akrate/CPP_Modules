@@ -6,7 +6,7 @@
 /*   By: aoussama <aoussama@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:12:48 by aoussama          #+#    #+#             */
-/*   Updated: 2025/11/13 11:05:38 by aoussama         ###   ########.fr       */
+/*   Updated: 2025/12/14 10:15:48 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,47 @@
 Contact::Contact(){}
 
 void Contact::setcontact(){
-    std::cout << "enter frist name: ";
-    std::getline(std::cin,firstName);
-    std::cout << "enter last name: ";
-    std::getline(std::cin, lastName);
-    std::cout << "enter nickname: ";
-    std::getline(std::cin,nickName);
-    std::cout << "enter phone number";
-    std::getline(std::cin, phoneNumber);
-    std::cout << "enter darkest secret: ";
-    std::getline(std::cin, darkestSecret);
-
+    // std::cout << "enter frist name: ";
+    // std::getline(std::cin,firstName);
+    while (firstName.empty())
+    {
+        std::cout << "enter frist name: ";
+        if (!std::getline(std::cin,firstName))
+        {
+            std::cout << "dkhl chi 9lwa  ";
+            std::cout << "Error: all fields must be filled.\n";
+            *this = Contact();
+            return ;
+        }
+    }
+    // std::cout << "enter last name: ";
+    // std::getline(std::cin, lastName);
+    while (lastName.empty())
+    {
+        std::cout << "enter last name: ";
+        std::getline(std::cin, lastName);
+    }
+    // std::cout << "enter nickname: ";
+    // std::getline(std::cin,nickName);
+    while (nickName.empty())
+    {
+        std::cout << "enter nickname: ";
+        std::getline(std::cin,nickName);
+    }
+    // std::cout << "enter phone number: ";
+    // std::getline(std::cin, phoneNumber);
+    while (phoneNumber.empty())
+    {
+        std::cout << "enter phone number: ";
+        std::getline(std::cin, phoneNumber);
+    }
+    // std::cout << "enter darkest secret: ";
+    // std::getline(std::cin, darkestSecret);
+    while (darkestSecret.empty())
+    {
+        std::cout << "enter darkest secret: ";
+        std::getline(std::cin, darkestSecret);
+    }
     if (firstName.empty()||lastName.empty()||nickName.empty()||phoneNumber.empty()||darkestSecret.empty())
     {
         std::cout << "Error: all fields must be filled.\n";
