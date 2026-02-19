@@ -15,63 +15,38 @@
 
 Contact::Contact(){}
 
-void Contact::setcontact(){
-    // std::cout << "enter frist name: ";
-    // std::getline(std::cin,firstName);
-    while (firstName.empty())
-    {
-        std::cout << "enter frist name: ";
-        if (!std::getline(std::cin,firstName))
-        {
-            std::cout << "dkhl chi 9lwa  ";
-            std::cout << "Error: all fields must be filled.\n";
-            *this = Contact();
-            return ;
-        }
-    }
-    // std::cout << "enter last name: ";
-    // std::getline(std::cin, lastName);
-    while (lastName.empty())
-    {
-        std::cout << "enter last name: ";
-        std::getline(std::cin, lastName);
-    }
-    // std::cout << "enter nickname: ";
-    // std::getline(std::cin,nickName);
-    while (nickName.empty())
-    {
-        std::cout << "enter nickname: ";
-        std::getline(std::cin,nickName);
-    }
-    // std::cout << "enter phone number: ";
-    // std::getline(std::cin, phoneNumber);
-    while (phoneNumber.empty())
-    {
-        std::cout << "enter phone number: ";
-        std::getline(std::cin, phoneNumber);
-    }
-    // std::cout << "enter darkest secret: ";
-    // std::getline(std::cin, darkestSecret);
-    while (darkestSecret.empty())
-    {
-        std::cout << "enter darkest secret: ";
-        std::getline(std::cin, darkestSecret);
-    }
-    if (firstName.empty()||lastName.empty()||nickName.empty()||phoneNumber.empty()||darkestSecret.empty())
+bool Contact::setcontact()
+{
+    std::cout << "enter frist name: ";
+    if (!std::getline(std::cin,firstName))
+        return false;
+    std::cout << "enter last name: ";
+    if (!std::getline(std::cin, lastName))
+        return false;
+    std::cout << "enter nickname: ";
+    if (!std::getline(std::cin,nickName))
+        return false;
+    std::cout << "enter phone number: ";
+    if (!std::getline(std::cin, phoneNumber))
+        return false;
+    std::cout << "enter darkest secret: ";
+    if (!std::getline(std::cin, darkestSecret))
+        return false;
+    if (firstName.empty()||lastName.empty()||nickName.empty()
+                    ||phoneNumber.empty()||darkestSecret.empty())
     {
         std::cout << "Error: all fields must be filled.\n";
-        *this = Contact();
+        return false;
     }
+    return true;
 }
-bool Contact::isEmpty() const {
-    return firstName.empty();
-}
-void Contact::displayFull() const{
-    std::cout << "Frist Name ==> " << firstName << std::endl;
-    std::cout << "Last Name ==> " << lastName << std::endl;
-    std::cout << "Nicke Name ==> "<< nickName << std::endl;
-    std::cout << "phone Number ==>" << phoneNumber << std::endl;
-    std::cout << "dakest Secret == >" << darkestSecret << std::endl;
+void Contact::displayFull() const
+{
+    std::cout << "Frist Name    ==> " << firstName << "\n";
+    std::cout << "Last Name     ==> " << lastName << "\n";
+    std::cout << "Nicke Name    ==> " << nickName << "\n";
+    std::cout << "phone Number  ==> " << phoneNumber << "\n";
+    std::cout << "dakest Secret ==> " << darkestSecret << "\n";
 }
 static std::string check_len(std::string str)
 {
@@ -79,9 +54,10 @@ static std::string check_len(std::string str)
         return str.substr(0,9) + ".";
     return str;
 }
-void Contact::displayShort(int index) const{
+void Contact::displayShort(int index) const
+{
     std::cout << std::setw(10) << index << "|"
               << std::setw(10) << check_len(firstName) << "|"
               << std::setw(10) << check_len(lastName) << "|"
-              << std::setw(10) << check_len(nickName) << "|" << std::endl;
+              << std::setw(10) << check_len(nickName) << "|" << "\n";
 }

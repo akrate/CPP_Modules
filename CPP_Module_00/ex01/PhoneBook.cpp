@@ -17,47 +17,50 @@ PhoneBook::PhoneBook() :count(0) ,nextIndex(0) {}
 void PhoneBook::addContact()
 {
     Contact newContact;
-    newContact.setcontact();
-    if (newContact.isEmpty() == false)
+    if (newContact.setcontact() == true)
     {
         contacts[nextIndex] = newContact;
         nextIndex = (nextIndex + 1) % 8;
+        std::cout << "Contact added successfully!\n";
         if (count < 8)
-        {
             count++;
-            std::cout << "Contact added successfully!\n";
-        }
     }
 }
 
-
 void PhoneBook::searchContact() const {
 
+    if (count == 0)
+    {
+        std::cout << "The contact list is empty.\n";
+        return ;
+    }
     std::cout << std::setw(10) << "Index" << "|"
               << std::setw(10) << "First Name" << "|"
               << std::setw(10) << "Last Name" << "|"
               << std::setw(10) << "Nickname" << "|\n";
 
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < count; i++)
+    {
         contacts[i].displayShort(i);
     }
 
     std::string input;
     int index = -1;
 
-    while (true) {
+    while (true)
+    {
         std::cout << "Enter index to view details: ";
-        if (!std::getline(std::cin, input)) {
-            std::cout << "\nEOF detected. Exiting search.\n";
+        if (!std::getline(std::cin, input))
             return;
-        }
-        if (input.length() != 1 || !std::isdigit(input[0])) {
+        if (input.length() != 1 || !std::isdigit(input[0]))
+        {
             std::cout << "❌ Invalid input. Enter a single digit.\n";
             continue;
         }
         index = input[0] - '0';
         
-        if (index < 0 || index >= 8 || index >= count) {
+        if (index < 0 || index >= 8 || index >= count)
+        {
             if (index >= count && index <= 7)
             {
                std::cout << "❌ Index Not found.\n";

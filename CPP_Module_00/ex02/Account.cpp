@@ -9,6 +9,7 @@
 /*   Updated: 2025/11/17 02:29:39 by aoussama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <iostream>
 #include <iomanip>
 #include <ctime>
@@ -21,7 +22,7 @@ int Account::_totalNbWithdrawals = 0;
 
 void Account::_displayTimestamp(void)
 {
-    std::time_t now = std::time(NULL);
+    std::time_t  now = std::time(NULL);
     std::tm *ptm = std::localtime(&now);
 
     std::cout << '['

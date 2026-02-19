@@ -14,23 +14,22 @@
 #define CONTACT_HPP
 
 #include <iostream>
-#include <string>
 #include <iomanip>
-#include <cctype>
-class Contact {
-private:
-    std::string firstName;
-    std::string lastName;
-    std::string nickName;
-    std::string phoneNumber;
-    std::string darkestSecret;
 
-public:
-    Contact();
-    void setcontact();
-    void displayShort(int index) const;
-    void displayFull() const;
-    bool isEmpty() const;
+class Contact
+{
+    private:
+        std::string firstName;
+        std::string lastName;
+        std::string nickName;
+        std::string phoneNumber;
+        std::string darkestSecret;
+
+    public:
+        Contact();
+        bool setcontact();
+        void displayShort(int index) const;
+        void displayFull() const;
 };
 
 #endif
