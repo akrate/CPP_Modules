@@ -48,7 +48,6 @@ void ClapTrap::attack(const std::string& target)
     std::cout << "ClapTrap "<< Name <<" attacks "
                 << target << ", causing "<< Attack 
                 << " points of damage!" << std::endl;
-    // Attack++;
     Energy--;
 }
 
