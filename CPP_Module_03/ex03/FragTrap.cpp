@@ -48,7 +48,7 @@ void FragTrap::attack(const std::string& target)
 void FragTrap::highFivesGuys(void)
 {
     std::cout << "FragTrap " << Name 
-              << " is requesting a positive high five! ✋" 
+              << " is requesting a positive high five! " 
               << std::endl;
 }
 

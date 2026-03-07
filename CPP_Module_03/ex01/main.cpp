@@ -4,7 +4,6 @@ int main()
 {
     std::cout << "----- Creating ScavTrap -----\n";
     ScavTrap scav("Guardian");
-
     std::cout << "\n----- Testing abilities -----\n";
     scav.attack("Enemy");
     scav.takeDamage(30);
