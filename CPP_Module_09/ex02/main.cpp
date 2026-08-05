@@ -1,22 +1,20 @@
 #include "PmergeMe.hpp"
 
-int main(int ac, char **av) {
-    if (ac == 1) return 1;
-
-    std::vector<int> v;
-    std::deque<int> d;
-    if (!fill_containers(ac, av, v, d))
+int main(int argc, char** argv)
+{
+    if (argc < 2)
+    {
+        std::cerr << "Error" << std::endl;
         return 1;
+    }
 
-    std::cout << "Before: ";
-    for (size_t i = 0; i < v.size(); ++i)
-        std::cout << v[i] << " ";
+    PmergeMe sorter;
+    if (!sorter.parseInput(argc, argv))
+    {
+        std::cerr << "Error" << std::endl;
+        return 1;
+    }
 
-    std::cout << std::endl;
-    ford_johnson_sort(v);
-    ford_johnson_sort(d);
-
-    std::cout << "After: ";
-    for (size_t i = 0; i < v.size(); ++i) std::cout << v[i] << " ";
-    std::cout << std::endl;
+    sorter.execute();
+    return 0;
 }
