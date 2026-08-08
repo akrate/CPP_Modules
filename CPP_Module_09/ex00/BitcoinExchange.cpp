@@ -58,8 +58,8 @@ int bitcoin_exchange(std::string file_input, const std::map<std::string,double> 
             date.erase(0, first);
             
         std::string valStr = line.substr(pipePos + 1);
-        char* endptr;
-        double val = strtod(valStr.c_str(), &endptr);
+        
+        double val = strtod(valStr.c_str(), NULL);
 
         if (val < 0) {
             std::cout << "Error: not a positive number." << std::endl;
